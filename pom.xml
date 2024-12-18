@@ -12,29 +12,61 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>mongodb</artifactId>
-    <name>JNoSQL Demo using Java SE MongoDB</name>
 
-    <parent>
-        <groupId>org.eclipse.jnosql.mapping</groupId>
-        <artifactId>mapping-demo-java-se</artifactId>
-        <version>1.1.3</version>
-    </parent>
+    <groupId>org.soujava.demos</groupId>
+    <artifactId>ddd</artifactId>
+    <name>Demo Exploring DDD with NoSQL database</name>
 
     <properties>
+        <jnosql.version>1.1.3</jnosql.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compile.version>3.5.1</maven.compile.version>
+        <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jakarta.json.bind.version>3.0.0</jakarta.json.bind.version>
+        <jakarta.json.version>2.1.1</jakarta.json.version>
+        <tinkerpop.version>3.6.1</tinkerpop.version>
+        <weld.se.core.version>5.1.0.Final</weld.se.core.version>
+        <mockito.verson>4.11.0</mockito.verson>
+        <assertj.version>3.24.2</assertj.version>
+        <junit.version>5.9.2</junit.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
-            <version>1.0.5-SNAPSHOT</version>
+            <version>1.1.3</version>
         </dependency>
         <dependency>
             <groupId>net.datafaker</groupId>
             <artifactId>datafaker</artifactId>
             <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-shaded</artifactId>
+            <version>${weld.se.core.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>3.0.3</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.smallrye.config</groupId>
+            <artifactId>smallrye-config-core</artifactId>
+            <version>3.2.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+            <version>3.0.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
