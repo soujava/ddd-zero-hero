@@ -16,6 +16,7 @@
     <groupId>org.soujava.demos</groupId>
     <artifactId>ddd</artifactId>
     <name>Demo Exploring DDD with NoSQL database</name>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <jnosql.version>1.1.3</jnosql.version>
