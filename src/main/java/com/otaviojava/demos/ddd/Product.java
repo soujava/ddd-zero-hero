@@ -1,21 +1,19 @@
 package com.otaviojava.demos.ddd;
 
 import jakarta.nosql.Column;
-import jakarta.nosql.Convert;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
-import org.eclipse.jnosql.databases.mongodb.mapping.ObjectIdConverter;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 public class Product {
 
     @Id
-    @Convert(ObjectIdConverter.class)
-    private String id;
+    private UUID id;
 
     @Column
     private String name;

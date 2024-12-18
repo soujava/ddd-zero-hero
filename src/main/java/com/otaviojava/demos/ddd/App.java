@@ -17,6 +17,8 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 
+import java.util.Set;
+
 
 public class App {
 
@@ -24,6 +26,10 @@ public class App {
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
+
+            Manufacturer manufacturer = new Manufacturer(faker.company().name(), faker.address().fullAddress(), faker.phoneNumber().cellPhone());
+            Set<Category> categories = Set.of(new Category("category1", "description1"), new Category("category2", "description2"));
+
         }
     }
 
