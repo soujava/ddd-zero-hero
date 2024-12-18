@@ -27,7 +27,14 @@ public class Product {
     @Column
     private Set<Category> categories;
 
-    Product(UUID id, String name, Manufacturer manufacturer,
+    /**
+     * @deprecated default constructor
+     */
+    Product() {
+    }
+
+    Product(UUID id, String name,
+            Manufacturer manufacturer,
             List<String> tags,
             Set<Category> categories) {
         this.id = id;
