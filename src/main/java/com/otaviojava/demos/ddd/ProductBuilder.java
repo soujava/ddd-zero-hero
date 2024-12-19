@@ -2,16 +2,15 @@ package com.otaviojava.demos.ddd;
 
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
 public class ProductBuilder {
-    private UUID id;
+    private String id;
     private String name;
     private Manufacturer manufacturer;
     private List<String> tags;
     private Set<Category> categories;
 
-    public ProductBuilder id(UUID id) {
+    public ProductBuilder id(String id) {
         this.id = id;
         return this;
     }
