@@ -88,4 +88,8 @@ public class Product {
                 ", categories=" + categories +
                 '}';
     }
+
+    public static ProductBuilder builder() {
+        return new ProductBuilder();
+    }
 }
