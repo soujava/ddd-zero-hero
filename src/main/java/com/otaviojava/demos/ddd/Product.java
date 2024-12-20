@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    private String id;
+    private UUID id;
 
     @Column
     private String name;
@@ -33,7 +33,7 @@ public class Product {
     Product() {
     }
 
-    Product(String id, String name,
+    Product(UUID id, String name,
             Manufacturer manufacturer,
             List<String> tags,
             Set<Category> categories) {
@@ -44,7 +44,7 @@ public class Product {
         this.categories = categories;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 

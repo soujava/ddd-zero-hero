@@ -17,9 +17,7 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 import net.datafaker.providers.base.Commerce;
-import org.eclipse.jnosql.mapping.Database;
 import org.eclipse.jnosql.mapping.DatabaseQualifier;
-import org.eclipse.jnosql.mapping.Databases;
 
 import java.util.List;
 import java.util.Set;
@@ -40,7 +38,7 @@ public class App {
                     new Category("category2", "description2"));
             Commerce commerce = faker.commerce();
             Product product = new ProductBuilder()
-                    .id(UUID.randomUUID().toString())
+                    .id(UUID.randomUUID())
                     .name(commerce.productName())
                     .manufacturer(manufacturer)
                     .tags(List.of("tag1", "tag2"))
