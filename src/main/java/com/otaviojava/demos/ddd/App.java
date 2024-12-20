@@ -36,7 +36,8 @@ public class App {
             ProductRepository repository = container.select(ProductRepository.class, DatabaseQualifier.ofDocument())
                     .get();
             Manufacturer manufacturer = new Manufacturer(faker.company().name(), faker.address().fullAddress(), faker.phoneNumber().cellPhone());
-            Set<Category> categories = Set.of(new Category("category1", "description1"), new Category("category2", "description2"));
+            Set<Category> categories = Set.of(new Category("category1", "description1"),
+                    new Category("category2", "description2"));
             Commerce commerce = faker.commerce();
             Product product = new ProductBuilder()
                     .id(UUID.randomUUID().toString())
