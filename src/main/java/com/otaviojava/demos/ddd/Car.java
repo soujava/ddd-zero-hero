@@ -1,5 +1,8 @@
 package com.otaviojava.demos.ddd;
 
+import net.datafaker.Faker;
+import net.datafaker.providers.base.Vehicle;
+
 import java.time.Year;
 import java.util.Objects;
 
@@ -70,5 +73,15 @@ public class Car {
 
     public static CarBuilder builder() {
         return new CarBuilder();
+    }
+
+    public static Car of(Vehicle vehicle) {
+        return builder()
+                .vin(vehicle.vin())
+                .transmission(vehicle.transmission())
+                .manufacturer(new Manufacturer(vehicle.manufacturer(), vehicle.model()))
+                .year(Year.now())
+                .color(Color.valueOf(vehicle.color().toUpperCase()))
+                .build();
     }
 }

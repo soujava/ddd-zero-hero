@@ -9,6 +9,9 @@ public class CarBuilder {
     private Year year;
     private Color color;
 
+    CarBuilder() {
+    }
+
     public CarBuilder vin(String vin) {
         this.vin = vin;
         return this;
