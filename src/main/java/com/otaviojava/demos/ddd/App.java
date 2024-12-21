@@ -15,6 +15,7 @@ package com.otaviojava.demos.ddd;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
+import net.datafaker.providers.base.Vehicle;
 
 
 public class App {
@@ -23,7 +24,7 @@ public class App {
     public static void main(String[] args) {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-
+            Vehicle vehicle = faker.vehicle();
         }
     }
 

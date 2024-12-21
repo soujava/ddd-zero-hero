@@ -1,4 +1,5 @@
 package com.otaviojava.demos.ddd;
 
-public record Manufacturer() {
+
+public record Manufacturer(String name, String model) {
 }
