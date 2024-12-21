@@ -33,8 +33,11 @@ public class App {
             var garage = container.select(Garage.class, DatabaseQualifier.ofDocument()).get();
             Car car = garage.park(garage.park(Car.of(vehicle)));
             LOGGER.info("Saving a car: " + car);
+            Car carFound = garage.checkRegistration(car.getVin());
+            LOGGER.info("Car found: " + carFound);
 
         }
+        System.exit(0);
     }
 
     private App() {
