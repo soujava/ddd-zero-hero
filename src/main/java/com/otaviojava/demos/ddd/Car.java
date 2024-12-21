@@ -67,4 +67,8 @@ public class Car {
                 ", color=" + color +
                 '}';
     }
+
+    public static CarBuilder builder() {
+        return new CarBuilder();
+    }
 }
