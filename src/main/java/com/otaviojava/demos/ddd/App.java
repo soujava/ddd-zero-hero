@@ -12,16 +12,9 @@
 package com.otaviojava.demos.ddd;
 
 
-
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
-import net.datafaker.providers.base.Commerce;
-import org.eclipse.jnosql.mapping.DatabaseQualifier;
-
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 
 public class App {
@@ -31,22 +24,6 @@ public class App {
         Faker faker = new Faker();
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
 
-            ProductRepository repository = container.select(ProductRepository.class, DatabaseQualifier.ofDocument())
-                    .get();
-            Manufacturer manufacturer = new Manufacturer(faker.company().name(), faker.address().fullAddress(), faker.phoneNumber().cellPhone());
-            Set<Category> categories = Set.of(new Category("category1", "description1"),
-                    new Category("category2", "description2"));
-            Commerce commerce = faker.commerce();
-            Product product = new ProductBuilder()
-                    .id(UUID.randomUUID())
-                    .name(commerce.productName())
-                    .manufacturer(manufacturer)
-                    .tags(List.of("tag1", "tag2"))
-                    .categories(categories)
-                    .build();
-
-            var updateProduct = repository.save(product);
-            System.out.println("Product saved: " + updateProduct);
         }
     }
 
