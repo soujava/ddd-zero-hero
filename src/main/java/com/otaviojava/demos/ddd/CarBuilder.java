@@ -5,7 +5,7 @@ public class CarBuilder {
     private String vin;
     private String transmission;
     private Manufacturer manufacturer;
-    private Color color;
+    private String color;
 
     CarBuilder() {
     }
@@ -25,7 +25,7 @@ public class CarBuilder {
         return this;
     }
 
-    public CarBuilder color(Color color) {
+    public CarBuilder color(String color) {
         this.color = color;
         return this;
     }

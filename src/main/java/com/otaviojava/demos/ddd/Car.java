@@ -5,7 +5,6 @@ import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 import net.datafaker.providers.base.Vehicle;
 
-import java.time.Year;
 import java.util.Objects;
 
 @Entity
@@ -21,13 +20,13 @@ public class Car {
     private Manufacturer manufacturer;
 
     @Column
-    private Color color;
+    private String color;
 
     @Deprecated
     Car() {
     }
 
-    Car(String vin, String transmission, Manufacturer manufacturer, Color color) {
+    Car(String vin, String transmission, Manufacturer manufacturer, String color) {
         this.vin = vin;
         this.transmission = transmission;
         this.manufacturer = manufacturer;
@@ -46,7 +45,7 @@ public class Car {
         return manufacturer;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
@@ -83,7 +82,7 @@ public class Car {
                 .vin(vehicle.vin())
                 .transmission(vehicle.transmission())
                 .manufacturer(new Manufacturer(vehicle.manufacturer(), vehicle.model()))
-                .color(Color.valueOf(vehicle.color().toUpperCase()))
+                .color(vehicle.color().toUpperCase())
                 .build();
     }
 }
