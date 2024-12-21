@@ -1,28 +1,36 @@
 package com.otaviojava.demos.ddd;
 
-import net.datafaker.Faker;
+import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
+import jakarta.nosql.Id;
 import net.datafaker.providers.base.Vehicle;
 
 import java.time.Year;
 import java.util.Objects;
 
+@Entity
 public class Car {
 
+    @Id
     private String vin;
 
+    @Column
     private String transmission;
 
+    @Column
     private Manufacturer manufacturer;
 
-    private Year year;
-
+    @Column
     private Color color;
 
-    Car(String vin, String transmission, Manufacturer manufacturer, Year year, Color color) {
+    @Deprecated
+    Car() {
+    }
+
+    Car(String vin, String transmission, Manufacturer manufacturer, Color color) {
         this.vin = vin;
         this.transmission = transmission;
         this.manufacturer = manufacturer;
-        this.year = year;
         this.color = color;
     }
 
@@ -36,10 +44,6 @@ public class Car {
 
     public Manufacturer getManufacturer() {
         return manufacturer;
-    }
-
-    public Year getYear() {
-        return year;
     }
 
     public Color getColor() {
@@ -66,7 +70,6 @@ public class Car {
                 "vin='" + vin + '\'' +
                 ", transmission='" + transmission + '\'' +
                 ", manufacturer=" + manufacturer +
-                ", year=" + year +
                 ", color=" + color +
                 '}';
     }
@@ -80,7 +83,6 @@ public class Car {
                 .vin(vehicle.vin())
                 .transmission(vehicle.transmission())
                 .manufacturer(new Manufacturer(vehicle.manufacturer(), vehicle.model()))
-                .year(Year.now())
                 .color(Color.valueOf(vehicle.color().toUpperCase()))
                 .build();
     }

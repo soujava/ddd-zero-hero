@@ -1,12 +1,10 @@
 package com.otaviojava.demos.ddd;
 
-import java.time.Year;
 
 public class CarBuilder {
     private String vin;
     private String transmission;
     private Manufacturer manufacturer;
-    private Year year;
     private Color color;
 
     CarBuilder() {
@@ -27,17 +25,12 @@ public class CarBuilder {
         return this;
     }
 
-    public CarBuilder year(Year year) {
-        this.year = year;
-        return this;
-    }
-
     public CarBuilder color(Color color) {
         this.color = color;
         return this;
     }
 
     public Car build() {
-        return new Car(vin, transmission, manufacturer, year, color);
+        return new Car(vin, transmission, manufacturer, color);
     }
 }

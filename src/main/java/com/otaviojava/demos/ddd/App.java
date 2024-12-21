@@ -16,15 +16,24 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import net.datafaker.Faker;
 import net.datafaker.providers.base.Vehicle;
+import org.eclipse.jnosql.mapping.DatabaseQualifier;
+
+import java.util.logging.Logger;
 
 
 public class App {
 
+    private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
     public static void main(String[] args) {
         Faker faker = new Faker();
+        LOGGER.info("Starting the application");
         try (SeContainer container = SeContainerInitializer.newInstance().initialize()) {
-            Vehicle vehicle = faker.vehicle();
+            var vehicle = faker.vehicle();
+            var garage = container.select(Garage.class, DatabaseQualifier.ofDocument()).get();
+            Car car = garage.park(garage.park(Car.of(vehicle)));
+            LOGGER.info("Saving a car: " + car);
+
         }
     }
 

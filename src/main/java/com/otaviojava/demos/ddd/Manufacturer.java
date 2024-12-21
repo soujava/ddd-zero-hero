@@ -1,5 +1,9 @@
 package com.otaviojava.demos.ddd;
 
 
-public record Manufacturer(String name, String model) {
+import jakarta.nosql.Column;
+import jakarta.nosql.Embeddable;
+
+@Embeddable(Embeddable.EmbeddableType.GROUPING)
+public record Manufacturer(@Column String name, @Column String model) {
 }
