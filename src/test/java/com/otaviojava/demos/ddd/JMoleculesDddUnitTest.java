@@ -1,5 +1,4 @@
-package expert.os.books.ddd.chapter04.domain;
-
+package com.otaviojava.demos.ddd;
 
 import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
@@ -11,7 +10,7 @@ public class JMoleculesDddUnitTest {
 
     @Test
     void checkTheLayerIntegration() {
-        String packageName = CardStatus.class.getPackageName();
+        String packageName = App.class.getPackageName();
         JavaClasses classes = new ClassFileImporter().importPackages(packageName);
         JMoleculesArchitectureRules.ensureLayering().check(classes);
 
@@ -19,7 +18,7 @@ public class JMoleculesDddUnitTest {
 
     @Test
     void checkDDDIntegration() {
-        String packageName = CardStatus.class.getPackageName();
+        String packageName = App.class.getPackageName();
         JavaClasses classes = new ClassFileImporter().importPackages(packageName);
         JMoleculesDddRules.all().check(classes);
 
