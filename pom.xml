@@ -32,6 +32,7 @@
         <mockito.verson>4.11.0</mockito.verson>
         <assertj.version>3.24.2</assertj.version>
         <junit.version>5.9.2</junit.version>
+        <jmolecules.version>1.9.0</jmolecules.version>
     </properties>
 
     <dependencies>
@@ -68,6 +69,16 @@
             <artifactId>microprofile-config-api</artifactId>
             <version>3.1</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jmolecules</groupId>
+            <artifactId>jmolecules-ddd</artifactId>
+            <version>${jmolecules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jmolecules</groupId>
+            <artifactId>jmolecules-layered-architecture</artifactId>
+            <version>${jmolecules.version}</version>
         </dependency>
     </dependencies>
 
